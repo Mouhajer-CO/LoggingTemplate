@@ -1,5 +1,5 @@
 {
-  "name": "poc_node_logging_protoype",
+  "name": "logging",
   "version": "1.0.0",
   "description": "POC Node Logging Prototype",
   "main": "./dist/index.js",

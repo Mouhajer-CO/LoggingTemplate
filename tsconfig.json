@@ -23,14 +23,10 @@
         "skipLibCheck": true, /* Skip type checking all .d.ts files. */
         /* Output Formatting */
         "pretty": true, /* Stylize errors and messages using color and context, this is on by default */
-        "noUnusedLocals": true,
-        "typeRoots": [
-            "src/custom.d.ts",
-            "node_modules/@types"
-        ]
+        "noUnusedLocals": true
     },
     "include": [
-        "./src"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",
