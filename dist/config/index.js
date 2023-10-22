@@ -12,6 +12,6 @@ exports.colours = {
     debug: "green"
 };
 exports.level = process.env.LOG_LEVEL === undefined ? "info" : process.env.LOG_LEVEL.toLowerCase();
-exports.humanReadable = process.env.HUMAN_LOG === undefined ? false : process.env.HUMAN_LOG === "1";
+exports.humanReadable = process.env.HUMAN_LOG === undefined ? false : process.env.HUMAN_LOG === "true";
 exports.createdDateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ";
 //# sourceMappingURL=index.js.map
