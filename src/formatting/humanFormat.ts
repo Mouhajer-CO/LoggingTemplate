@@ -5,7 +5,7 @@ import { LogMetaData } from "../type";
 
 const setHumanMessage = (namespace: string, info: any): LogMetaData => {
     return {
-        created: DateTime.now().toFormat("YYYY-MM-DDTHH:mm:ss.SSSZ"),
+        created: DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
         namespace: namespace,
         event: info.level,
         context: info.context,

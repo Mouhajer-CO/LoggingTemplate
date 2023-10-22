@@ -5,7 +5,7 @@ import winston from "winston";
 
 const setJsonMessage = (namespace: string, info: any) => {
     return {
-        created: DateTime.now().toFormat("YYYY-MM-DDTHH:mm:ss.SSSZ"),
+        created: DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
         event: info.level,
         namespace: namespace,
         context: info.context,
