@@ -10,8 +10,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint '{src,test}/**/*.ts'",
     "lint:fix": "eslint '{src,test}/**/*.ts' --fix",
-    "prepublishOnly": "[ ! -d node_modules ] && npm install; tsc",
-    "postpublish": "rm -rf dist"
+    "prepublishOnly": "[ ! -d node_modules ] && npm install; tsc"
   },
   "engines": {
     "npm": ">=10.0.0",
