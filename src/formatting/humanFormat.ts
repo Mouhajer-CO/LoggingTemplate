@@ -8,7 +8,6 @@ const setHumanMessage = (options: LoggerOptions, info: any): LogMetaData => {
         created: DateTime.now().toFormat(options.createdDateFormat),
         namespace: options.namespace,
         event: info.level,
-        context: info.context,
         path: info.path,
         method: info.method,
         status: info.status,
@@ -19,7 +18,7 @@ const setHumanMessage = (options: LoggerOptions, info: any): LogMetaData => {
 export const createHumanFormat = (options: LoggerOptions) => {
     const colorizer = winston.format.colorize();
 
-    // TO be changed
+    //TO DO: REFACTOR
     return winston.format.printf(function (info) {
 
         const messageInfo: LogMetaData = setHumanMessage(options, info);

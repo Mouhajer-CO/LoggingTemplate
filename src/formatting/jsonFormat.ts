@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import winston from "winston";
 import { LoggerOptions } from "../type";
 
-// TODO: add types
+// TODO: IMPROVE TYPING
 
 const setJsonMessage = (options: LoggerOptions, info: any) => {
     return {

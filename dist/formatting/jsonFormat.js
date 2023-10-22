@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createJsonFormat = void 0;
 const luxon_1 = require("luxon");
 const winston_1 = __importDefault(require("winston"));
-// TODO: add types
+// TODO: IMPROVE TYPING
 const setJsonMessage = (options, info) => {
     return {
         created: luxon_1.DateTime.now().toFormat(options.createdDateFormat),

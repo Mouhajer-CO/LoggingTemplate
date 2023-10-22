@@ -11,7 +11,6 @@ const setHumanMessage = (options, info) => {
         created: luxon_1.DateTime.now().toFormat(options.createdDateFormat),
         namespace: options.namespace,
         event: info.level,
-        context: info.context,
         path: info.path,
         method: info.method,
         status: info.status,
@@ -20,7 +19,7 @@ const setHumanMessage = (options, info) => {
 };
 const createHumanFormat = (options) => {
     const colorizer = winston_1.default.format.colorize();
-    // TO be changed
+    //TO DO: REFACTOR
     return winston_1.default.format.printf(function (info) {
         const messageInfo = setHumanMessage(options, info);
         const keys = Object.keys(messageInfo).sort();
