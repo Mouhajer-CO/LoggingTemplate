@@ -1,12 +1,12 @@
 import { DateTime } from "luxon";
 import winston from "winston";
 
-import { LogMetaData } from "../type";
+import { LogMetaData, LoggerOptions } from "../type";
 
-const setHumanMessage = (namespace: string, info: any): LogMetaData => {
+const setHumanMessage = (options: LoggerOptions, info: any): LogMetaData => {
     return {
-        created: DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
-        namespace: namespace,
+        created: DateTime.now().toFormat(options.createdDateFormat),
+        namespace: options.namespace,
         event: info.level,
         context: info.context,
         path: info.path,
@@ -16,13 +16,13 @@ const setHumanMessage = (namespace: string, info: any): LogMetaData => {
     };
 };
 
-export const createHumanFormat = (namespace: string) => {
+export const createHumanFormat = (options: LoggerOptions) => {
     const colorizer = winston.format.colorize();
 
     // TO be changed
     return winston.format.printf(function (info) {
 
-        const messageInfo: LogMetaData = setHumanMessage(namespace, info);
+        const messageInfo: LogMetaData = setHumanMessage(options, info);
         const keys = Object.keys(messageInfo).sort();
 
         let message = colorizer.colorize(info.level, `${messageInfo.created} ${messageInfo.event}: ${info.message}`);

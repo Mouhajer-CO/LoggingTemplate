@@ -3,3 +3,4 @@ export declare const levels: AbstractConfigSetLevels;
 export declare const colours: AbstractConfigSetColors;
 export declare const level: string;
 export declare const humanReadable: boolean;
+export declare const createdDateFormat: string;

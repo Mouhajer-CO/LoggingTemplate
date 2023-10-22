@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createHumanFormat = void 0;
 const luxon_1 = require("luxon");
 const winston_1 = __importDefault(require("winston"));
-const setHumanMessage = (namespace, info) => {
+const setHumanMessage = (options, info) => {
     return {
-        created: luxon_1.DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
-        namespace: namespace,
+        created: luxon_1.DateTime.now().toFormat(options.createdDateFormat),
+        namespace: options.namespace,
         event: info.level,
         context: info.context,
         path: info.path,
@@ -18,11 +18,11 @@ const setHumanMessage = (namespace, info) => {
         duration: info.duration
     };
 };
-const createHumanFormat = (namespace) => {
+const createHumanFormat = (options) => {
     const colorizer = winston_1.default.format.colorize();
     // TO be changed
     return winston_1.default.format.printf(function (info) {
-        const messageInfo = setHumanMessage(namespace, info);
+        const messageInfo = setHumanMessage(options, info);
         const keys = Object.keys(messageInfo).sort();
         let message = colorizer.colorize(info.level, `${messageInfo.created} ${messageInfo.event}: ${info.message}`);
         keys.forEach(function (key) {

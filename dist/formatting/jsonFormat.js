@@ -7,12 +7,11 @@ exports.createJsonFormat = void 0;
 const luxon_1 = require("luxon");
 const winston_1 = __importDefault(require("winston"));
 // TODO: add types
-const setJsonMessage = (namespace, info) => {
+const setJsonMessage = (options, info) => {
     return {
-        created: luxon_1.DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
+        created: luxon_1.DateTime.now().toFormat(options.createdDateFormat),
         event: info.level,
-        namespace: namespace,
-        context: info.context,
+        namespace: options.namespace,
         data: {
             message: info.message,
             path: info.path,
@@ -22,9 +21,9 @@ const setJsonMessage = (namespace, info) => {
         }
     };
 };
-const createJsonFormat = (namespace) => {
+const createJsonFormat = (options) => {
     return winston_1.default.format.printf(function (info) {
-        return JSON.stringify(setJsonMessage(namespace, info));
+        return JSON.stringify(setJsonMessage(options, info));
     });
 };
 exports.createJsonFormat = createJsonFormat;

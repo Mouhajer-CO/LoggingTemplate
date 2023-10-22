@@ -1,2 +1,3 @@
 import winston from "winston";
-export declare const createHumanFormat: (namespace: string) => winston.Logform.Format;
+import { LoggerOptions } from "../type";
+export declare const createHumanFormat: (options: LoggerOptions) => winston.Logform.Format;

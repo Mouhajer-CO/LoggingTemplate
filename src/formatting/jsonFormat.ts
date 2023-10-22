@@ -1,14 +1,14 @@
 import { DateTime } from "luxon";
 import winston from "winston";
+import { LoggerOptions } from "../type";
 
 // TODO: add types
 
-const setJsonMessage = (namespace: string, info: any) => {
+const setJsonMessage = (options: LoggerOptions, info: any) => {
     return {
-        created: DateTime.now().toFormat("yyyy-MM-ddTHH:mm:ss.SSSZ"),
+        created: DateTime.now().toFormat(options.createdDateFormat),
         event: info.level,
-        namespace: namespace,
-        context: info.context,
+        namespace: options.namespace,
         data: {
             message: info.message,
             path: info.path,
@@ -19,8 +19,8 @@ const setJsonMessage = (namespace: string, info: any) => {
     };
 };
 
-export const createJsonFormat = (namespace: string) => {
+export const createJsonFormat = (options: LoggerOptions) => {
     return winston.format.printf(function (info) {
-        return JSON.stringify(setJsonMessage(namespace, info));
+        return JSON.stringify(setJsonMessage(options, info));
     });
 }

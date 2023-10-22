@@ -1,2 +1,3 @@
 import winston from "winston";
-export declare const createJsonFormat: (namespace: string) => winston.Logform.Format;
+import { LoggerOptions } from "../type";
+export declare const createJsonFormat: (options: LoggerOptions) => winston.Logform.Format;

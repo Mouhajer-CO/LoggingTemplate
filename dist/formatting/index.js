@@ -10,8 +10,8 @@ const jsonFormat_1 = require("./jsonFormat");
 const setFormat = (options) => {
     return {
         format: options.humanReadable ?
-            (0, humanFormat_1.createHumanFormat)(options.namespace) :
-            (0, jsonFormat_1.createJsonFormat)(options.namespace)
+            (0, humanFormat_1.createHumanFormat)(options) :
+            (0, jsonFormat_1.createJsonFormat)(options)
     };
 };
 const createFormat = (options) => {

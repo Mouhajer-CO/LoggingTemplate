@@ -4,6 +4,7 @@ export interface LoggerOptions {
     humanReadable: boolean;
     namespace: string;
     level: string;
+    createdDateFormat: string;
     levels: AbstractConfigSetLevels;
     colours: AbstractConfigSetColors;
 };

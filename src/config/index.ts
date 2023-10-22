@@ -14,3 +14,5 @@ export const colours: AbstractConfigSetColors = {
 
 export const level: string = process.env.LOG_LEVEL === undefined ? "info" : process.env.LOG_LEVEL.toLowerCase();
 export const humanReadable: boolean = process.env.HUMAN_LOG === undefined ? false : process.env.HUMAN_LOG === "1";
+
+export const createdDateFormat: string = "yyyy-MM-dd HH:mm:ss.SSSZ";

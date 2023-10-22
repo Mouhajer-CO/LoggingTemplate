@@ -7,8 +7,8 @@ import { LoggerOptions } from "../type";
 const setFormat = (options: LoggerOptions) => {
     return {
         format: options.humanReadable ?
-            createHumanFormat(options.namespace) :
-            createJsonFormat(options.namespace)
+            createHumanFormat(options) :
+            createJsonFormat(options)
     };
 }
 
